@@ -5,23 +5,33 @@
 #include "extras.h"
 #include "record.h"
 
-#define MAX_RECORDS 1000
+
 
 // function prototypes
-void input_handler(char input[], Participant[]);
+void input_handler(char input[], linkedList *my_list,Participant* pcp,int * number_to_add);
 void show_menu();
 
 // main function
 int main(){
 
-	Participant participants[MAX_RECORDS];
-  
-	char user_input[64] = "";
+	Participant pcp;
+  linkedList *my_list = (linkedList *)malloc(sizeof(linkedList));
+  my_list->head = NULL;
+  my_list->tail = NULL;
+  int number_to_add=0;
+  int i=0;
+  char c;
+	char user_input[2] = "";
 	while(strcmp(user_input, "99") != 0){
+    if(i>0){
+      c=getchar();
+    }
+    
 		show_menu();
 		printf("\nSelect a menu> ");
-		fgets(user_input, 64, stdin);
-		input_handler(user_input, participants);
+		fgets(user_input, 2, stdin);
+		input_handler(user_input,my_list, &pcp,&number_to_add);
+    i++;
 	}
 
 	return 0;
@@ -32,18 +42,22 @@ int main(){
 // Input: record - array of Records; this may contain empty elements in the middle
 // Output: none
 // - Handles the user input and invokes functions that correspond to the user input
-void input_handler(char input[], Participant participants[]){
+void input_handler(char input[], linkedList *my_list,Participant* pcp,int * number_to_add){
 
 	// TODO: Modify this function as you need
 
 	if(!strcmp(input, "1"))
-		register_pcp(participants);
-//	else if(!strcmp(input, "2"))
-   //	print_all_records(participants);	
-//	else if(!strcmp(input, "3"))
-		//ld_data(participants,"pcp.txt");
-	/*else if(!strcmp(input, "4"))
-		display_stats(records);	
+		create_pcp(my_list,pcp,number_to_add);
+  else if(!strcmp(input, "2"))
+    print_nodes(my_list);	
+  else if(!strcmp(input, "3"))
+		export_entire_data_in_report(my_list);
+	else if(!strcmp(input, "4"))
+		read_entire_data_from_file(my_list);
+  else if(!strcmp(input, "5"))
+		write_entire_data_to_file(my_list);
+  else if(!strcmp(input, "6"))
+		find_node_to_update(my_list);
 	else if(!strcmp(input, "99"))
 		printf("Terminating... bye!\n"); // Quit - no operation (an empty statement with a semi-colon)*/
 	//else
@@ -63,8 +77,11 @@ void show_menu(){
 	printf("******************************\n");
 	printf(" In G-IMPACT of Handong, the List of participants Management System(LMS) \n");
 	printf("******************************\n");
-	printf(" 1. register a new participants\n");
-	printf(" 2. Print all participants\n");
-	printf(" 3. Load a new data file\n");
-	printf(" 4. Export data file in report format\n");
+	printf(" 1. create a new participants\n");
+	printf(" 2. Print participants in the way you want\n");
+	printf(" 3. Export the entire data in a report\n");
+	printf(" 4. Read the entire data from the file you want\n");
+  printf(" 5. Write the entire data to the file you want\n");
+  printf(" 6. Update the data of the participant you want\n");
+  printf(" 99. Quit");
 }
