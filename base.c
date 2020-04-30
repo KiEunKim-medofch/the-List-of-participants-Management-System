@@ -516,3 +516,39 @@ void print_update_data(Participant *pcp)
   printf(" Update! Check the below data : )\n");
       printf("\tName : %s\n\tPhone_number : %s\n\tAge :  %d\n\tHigh School : %s\n\tGroup Number : %d\n",pcp->name,pcp->phone_num,pcp->age,pcp->n_highsch,pcp->gr_num);
 }
+
+void find_node_to_delete(linkedList *my_list)
+{
+  char tname[20];
+  node *p;
+  printf("We will delete the information of the participants you want.\n");
+  printf("Enter the name of participant you want to delete without space. replace space with '_'.: ");
+  scanf("%s",tname);
+  getchar();
+  for(p=my_list->head; p!=NULL;p=p->link){
+    if(!strncmp(p->pcp.name,tname,sizeof(tname)))
+    {
+      delete_the_node(my_list,&p->pcp);
+      printf(" Delete! Print to see if it has been deleted.\n");
+      print_name_nodes(my_list);
+    }
+    else{
+      printf("Participant information with the name you entered does not exist.");
+      break;
+    }
+
+  }
+  
+
+
+}
+
+void delete_the_node(linkedList *my_list,Participant *pcp)
+{
+  strcpy(pcp->name, "\0");
+  strcpy(pcp->phone_num, "\0");
+  pcp->age = 0;
+  strcpy(pcp->n_highsch, "\0");
+  pcp->gr_num = 0;
+
+}
