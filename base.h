@@ -24,6 +24,9 @@ void write_entire_data_to_file(linkedList *my_list);
 void find_node_to_update(linkedList *my_list);
 void update_the_node(linkedList *my_list, Participant *pcp);
 void print_update_data(Participant *pcp);
+void find_node_to_delete(linkedList *my_list);
+void delete_the_node(linkedList *my_list,Participant *pcp);
+
 
 
 
