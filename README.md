@@ -1,18 +1,22 @@
 # the-List-of-participants-Management-System
 
 
-
+             
+             
+             
 ## Information
 
 
-
+       
+       
 ### The subject     
 
 
 ####  -	In G-IMPACT of Handong, the List of participants Management System(LMS)      
 
 
-
+            
+            
 ### The purpose       
 
 
@@ -22,7 +26,9 @@
 ####  -	The efficient sorting program of participants list is essential for safety management of all and G-IMPACT program operation.        
 
 
-
+          
+        
+        
 ### How the complete system could be used     
 
 
@@ -33,11 +39,14 @@
 
 
 
-
+                 
+                 
+                 
 ## Implementation    
 
 
-
+         
+         
 ### Create    
 
 
@@ -47,11 +56,12 @@
 ####  - create a new data of the participants list from the standard input    
 
 
-
+       
+       
 ### Read    
 
 
-####  - print a record, , multiple or all records to the standard output according to the specifed condition the user choose    
+####  - print a record, , multiple or all records to the standard output according to the specifed condition the user choose 
 
 
 ####  - read or write the data of the participants list from/to the file system    
@@ -60,14 +70,16 @@
 ####  - export the all data file of the participants in a report format as text file    
 
 
-
+         
+         
 ### Update   
 
 
 ####  - update the data of the participant the user want and choose    
 
 
-
+      
+      
 ### Delete   
 
 
