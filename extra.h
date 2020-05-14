@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "record.h"
 
-void group_match_node(linkedList *my_list);
+void advanced_search(linkedList *my_list);
 
 #endif
 
