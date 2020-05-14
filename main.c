@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "base.h"
-#include "extras.h"
+#include "extra.h"
 #include "record.h"
 
 
@@ -60,6 +60,8 @@ void input_handler(char input[], linkedList *my_list,Participant* pcp,int * numb
 		find_node_to_update(my_list);
   else if(!strcmp(input, "7"))
 		find_node_to_delete(my_list);
+  else if(!strcmp(input, "8"))
+		group_match_node(my_list);
 	else if(!strcmp(input, "99"))
 		printf("Terminating... bye!\n"); 
     ;// Quit - no operation (an empty statement with a semi-colon)*/
@@ -87,5 +89,6 @@ void show_menu(){
   printf(" 5. Write the entire data to the file you want\n");
   printf(" 6. Update the data of the participant you want\n");
   printf(" 7. Delete the data of the participant you want\n");
+  printf(" 8. Save each group data of .txt file\n");
   printf(" 99. Quit");
 }

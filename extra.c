@@ -1,28 +1,38 @@
-/*
 #include <stdio.h>
-#include "extras.h"
+#include <string.h>
+#include <stdlib.h>
+#include "extra.h"
+#include "record.h"
 
-// Function: defragment()
-// Input: record - array of Records; this may contain empty elements in the middle
-// Output: 1 if successful, otherwise 0
-// - Leave a brief information about the function
-int defragment(Record records[]){
-	// TODO: Modify this function as you need
-	printf("defragment(): this function needs to be implemented\n\n");
-	return 0;	// TODO: return 1 if defragment succeed; return 0 otherwise 
+void group_match_node(linkedList *my_list) {
+  node *p;
+  int group_num=0;
+  int k=1;
+  printf("Enter the group number you want: ");
+  scanf("%d",&group_num);
+  
+  FILE *fp= fopen("group_match.txt","wt");
+  
+  fprintf(fp,"=======================================\n");
+  fprintf(fp,"========The Report Of Paricipant=======\n");
+  fprintf(fp,"=======================================\n");
+  for(p=my_list->head; p!=NULL; p=p->link)
+  {
+  	if(p->pcp.gr_num == group_num){
+	    fprintf(fp,"=================No.%d==================\n",k++);
+	    //name
+	    fprintf(fp,"\tName : %s\n",p->pcp.name);
+	    //phone_num
+	    fprintf(fp,"\tPhone Number : %s\n",p->pcp.phone_num);
+	    //age
+	    fprintf(fp,"\tAge : %d\n",p->pcp.age);
+	    //high school name
+	    fprintf(fp,"\tHigh school : %s\n",p->pcp.n_highsch);
+	    //group number
+	    fprintf(fp,"\tGroup Number : %d\n",p->pcp.gr_num);
+	    fprintf(fp,"=======================================\n");
+	 }
+  }
+  
+  fclose(fp);
 }
-
-
-// Function: add_a_record()
-// Input: record - array of Records; this may contain empty elements in the middle
-// Output: none
-// - Leave a brief information about the function
-void display_stats(Record records[]){
-	// TODO: Modify this function as you need
-	printf("display_stats(): this function needs to be implemented\n\n"); // TODO: Remove this line
-}
-
-
-// TODO: Add more functions to fulfill the optional requirements
-
-*/
